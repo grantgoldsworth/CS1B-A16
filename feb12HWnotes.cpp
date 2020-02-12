@@ -17,4 +17,10 @@
  *
  * dynamically allocate space for the arrays
  * 
+ *
+ * int *array1D = nullPtr;
+ * int numElements = 0;
+ * cin >> numElements;
+ *
+ * arrayID = new *int[numElements];
 */
