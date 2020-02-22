@@ -15,8 +15,13 @@ using namespace std;
 
 int * CreateInt();
 
-void Populate1DArray(int [], int);
+void Populate1D(int * [], int);
 
+void Populate2D(int ***, int, int);
+
+void Print1D(int * [], int);
+
+void Print2D(int ***, int, int);
 
 
 #endif //UNTITLED_FUNCTIONS_H
