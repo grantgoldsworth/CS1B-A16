@@ -84,7 +84,9 @@ void Populate2D(int *** array2D, // VAL - the pointer to the array of pointers t
                 int cols) {      // VAL - the number of elements in the sub arrays
 
     for (int i = 0; i < rows; i ++) {
+        // for each subarray (pointer) i, run the below loop
         for (int j = 0; j < cols; j ++) {
+            // each int pointer j of sub array i is assigned dynamic int
             cout << "[" << i << " " << j << "]: ";
             array2D[i][j] = CreateInt();
         }
@@ -113,9 +115,12 @@ void Populate2D(int *** array2D, // VAL - the pointer to the array of pointers t
 void Print1D(int * array[],          // REF - the array of int pointers
             const int elementCount) {// VAL - the number of elements in the array of pointers
 
-    cout << "[ ";
+    cout << "[";
     for (int i = 0; i < elementCount; i ++) {
-        cout << *array[i] << " ";
+        cout << *array[i];
+        if (i < elementCount - 1) {
+            cout << ", ";
+        }
     }
     cout << "]\n";
 }
@@ -132,8 +137,10 @@ void Print1D(int * array[],          // REF - the array of int pointers
  * ===> returns nothing.
  *
  * PRE-CONDITIONS
- * 		array[]     : must be an array of int pointers
- * 		numElements : the size of the 1D array of pointers
+ *      The following must be defined prior to function call:
+ * 		    array[]     : must be an array of int pointers
+ * 		    numElements : the size of the 1D array of pointers
+ * 		    print1D     : a function to print a single dimension array passed via pointer
  * POST-CONDITIONS
  *      This function outputs stuff to the stream.
  *      This function will not modify the actual parameters
@@ -143,11 +150,9 @@ void Print2D(int *** array,     // VAL - pointer to array of pointers to arrays 
              const int rows,    // VAL - the number of sub arrays; number of pointers in top level array
              const int cols) {  // VAL - the number of elements in the sub arrays
 
+    // for each sub array, call Print1D since it is a single dimensional array with <col> elements
     for (int i = 0; i < rows; i ++) {
-        cout << "[ ";
-        for (int j = 0; j < cols; j ++) {
-            cout << *array[i][j] << " ";
-        }
-        cout << "]\n";
+        Print1D(array[i], cols);
     }
+
 }

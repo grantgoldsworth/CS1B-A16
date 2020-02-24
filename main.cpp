@@ -82,7 +82,7 @@ int main() {
 
     cout << "\n\n2D Array:\n";
     Print2D(specialArray2D, m2D, n2D);
-    
+
 
     // return memory to OS and deactivate pointers
     for (int i = 0; i < rows1D; i ++) {
